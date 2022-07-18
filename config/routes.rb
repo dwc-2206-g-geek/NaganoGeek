@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'items/index'
+    get 'items/new'
+    get 'items/show'
+    get 'items/edit'
+  end
 # 顧客用
 # URL /customers/sign_in ...
 devise_for :customers,skip: [:passwords], controllers: {
@@ -15,9 +21,12 @@ devise_for :customers,skip: [:passwords], controllers: {
 
   namespace :public do
     resources :customers, only: [:show, :edit, :unsubscribe]
+    resources :items, only: [:index, :show]
+  end
+  
+  namespace :admin do
+    resources :items, except: [:destroy]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-　root to: 'homes#top'
-　
 end
