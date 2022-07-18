@@ -16,6 +16,8 @@ devise_for :customers,skip: [:passwords], controllers: {
   namespace :public do
     resources :customers, only: [:show, :edit, :unsubscribe]
   end
-
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+　root to: 'homes#top'
+　
 end
