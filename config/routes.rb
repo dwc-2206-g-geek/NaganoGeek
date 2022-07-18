@@ -19,10 +19,13 @@ devise_for :customers,skip: [:passwords], controllers: {
   end
 
 
-  namespace :public do
+  scope module: :public do
     resources :cart_items, only: [:create, :destroy, :update, :index] 
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all', as: 'destroy_all'
-  end  
+  end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
+
+
+  

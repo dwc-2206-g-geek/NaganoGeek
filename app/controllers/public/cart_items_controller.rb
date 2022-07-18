@@ -1,15 +1,16 @@
 class Public::CartItemsController < ApplicationController
-  before_action :authenticate_customer!
+  # before_action :authenticate_customer!
 
 
   def index
-    @cart_item = Cartitem.new   #この記述はitem_detailのページにも記載,新規投稿のために使用
-    @cart_items = current_user.cart_items #ログイン中のユーザに結びついたカートアイテムが欲しい
+    @cart_item = CartItem.new #この記述はitem_detailのページにも記載,新規投稿のために使用
+    @cart_items = CartItem.all #ログイン中のユーザに結びついたカートアイテムが欲しい
+    @cart_items.customer_id = current_customer.id  #current_customer.cart_itemsじゃエラー？
     @total = 0   #合計金額の算出に使用する変数
   end
 
   def create #このアクション内でupdateとcreateにアクションを分岐する。もしデータがあったら、update,なかったらcreate
-    @cart_item = Cartitem.new(cart_item_params)
+    @cart_item = CartItem.new(cart_item_params)
     @cart_item.customer_id = current_customer.id
     if current_customer.cart_items.find_by(item_id :cart_item_params[:item_id] ) #カート内に同一商品が存在するか調べる
     # もしカート内にデータがあったなら、同一商品を足してアップデート
@@ -35,7 +36,7 @@ class Public::CartItemsController < ApplicationController
   end
 
   def destroy_all
-    current_user.cart_items.destroy_all
+    current_customer.cart_items.destroy_all
     redirect_to request.referer
   end
 
