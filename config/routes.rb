@@ -21,12 +21,18 @@ devise_for :customers,skip: [:passwords], controllers: {
 
   namespace :public do
     resources :customers, only: [:show, :edit, :unsubscribe]
-    resources :items, only: [:index, :show]
   end
-  
+
+  scope module: :public do
+   resources :items, only: [:index, :show]
+   root :to =>"homes#top"
+  end
+
   namespace :admin do
     resources :items, except: [:destroy]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
+  
+ 
+  
 end
