@@ -5,7 +5,8 @@
     <%= f.hidden_field :item_id, value: item.id %>  <!--cart.itemに今回のページのitemのidを代入したい-->
   </div>
   <div class="form-group">
-    <%= f.select :amount, *[1..9] class: 'form-control' %>
+    <%= f.label :amount, '変更'
+    <%= f.select :amount, *[1..9],  include_blank: '個数選択', class: 'form-control' %>
   </div>
   <div class="form-group">
     <%= f.submit "カートに入れる" class: 'btn btn-success' %>

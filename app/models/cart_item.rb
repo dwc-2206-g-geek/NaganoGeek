@@ -1,5 +1,5 @@
 class CartItem < ApplicationRecord
-  belongs_to :user 
+  belongs_to :customer
   belongs_to :cart
   
   # 税込み単価の算出,item.rbに記載が好ましい
@@ -12,3 +12,6 @@ class CartItem < ApplicationRecord
       item.with_tax_price * amount
   end
 end
+
+
+
