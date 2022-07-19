@@ -22,7 +22,6 @@ devise_for :customers,skip: [:passwords], controllers: {
     get 'customers/my_page', to: 'customers#show', as: 'my_page'
     get '/customers/information/edit', to: 'customers#edit', as: 'edit'
     get '/customers/unsubscribe', to: 'customers#unsubscribe', as: 'unsubscribe'
-    patch '/customers/withdraw', to: 'customers#withdraw', as: 'withdraw'
   end
   
   namespace :admin do
