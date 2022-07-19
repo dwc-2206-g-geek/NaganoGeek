@@ -4,6 +4,8 @@
     <div class="container justify-content-end">
     
     <% if customer_signed_in? %>
+    
+    <ul class="list-inline">
 
       <li>
         マイページ  
@@ -20,8 +22,12 @@
       <li>
         ログアウト  
       </li>
+      
+      </ul>
     
     <% else %>
+    
+    <ul class="list-inline">
       
       <li>
         About 
@@ -38,6 +44,8 @@
       <li>
         ログイン 
       </li>
+      
+      </ul>
     
     <% end %>
     </div>

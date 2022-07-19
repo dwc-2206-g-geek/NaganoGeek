@@ -4,6 +4,9 @@
     <div class="container justify-content-end">
     
     <% if admin_signed_in? %>
+    
+      <ul class="list-inline">
+    
       <li>
         商品一覧  
       </li>
@@ -24,7 +27,10 @@
         ログアウト
       </li>
     
+      </ul>
     <% else %>
+    
+    <ul class="list-inline">
       <li>
         About  
       </li>
@@ -40,6 +46,8 @@
       <li>
         ログイン
       </li>
+      
+      </ul>
     
     <% end %>
     
