@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   }
 
   scope module: :public do
-    resources :orders, only: [:new, :confirm, :complete, :create, :index, :show]
+    get 'orders/complete' => 'orders#complete', as: 'complete'
+    post 'orders/confirm' => 'orders#confirm', as: 'confirm'
+    resources :orders, only: [:new, :create, :index, :show]
   end
 
   namespace :admin do
