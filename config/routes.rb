@@ -12,7 +12,7 @@ devise_for :customers,skip: [:passwords], controllers: {
  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
    sessions: "admin/sessions"
  }
- 
+
    scope module: :public do
    resources :items, only: [:index, :show]
    root :to =>"homes#top"
