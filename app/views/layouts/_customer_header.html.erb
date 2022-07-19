@@ -1,0 +1,47 @@
+<header>
+  
+  <nav class="navbar navbar-expand-lg">
+    <div class="container justify-content-end">
+    
+    <% if customer_signed_in? %>
+
+      <li>
+        マイページ  
+      </li>
+    
+      <li>
+        商品一覧 
+      </li>
+  
+      <li>
+        カート  
+      </li>
+    
+      <li>
+        ログアウト  
+      </li>
+    
+    <% else %>
+      
+      <li>
+        About 
+      </li>
+    
+      <li>
+        商品一覧 
+      </li>
+  
+      <li>
+        新規登録
+      </li>
+    
+      <li>
+        ログイン 
+      </li>
+    
+    <% end %>
+    </div>
+  </nav>
+    
+    
+</header>
