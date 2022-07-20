@@ -1,9 +1,9 @@
 <header>
 
   <% if admin_signed_in? %>
-  
+
   <ul class="nav justify-content-end py-3" style="background-color:#faf0e6;">
-  
+
     <li class="nav-item">
       <a class="nav-link active" aria-current="page" href="admin/items">商品一覧</a>
     </li>
@@ -17,7 +17,7 @@
       <a class="nav-link" href="/admin/genres">ジャンル一覧</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/admin/sign_out">ログアウト</a>
+      <a class="nav-link" href="/admin/sign_out" method: :delete>ログアウト</a>
     </li>
   </ul>
 
