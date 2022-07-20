@@ -3,8 +3,7 @@ class Public::CartItemsController < ApplicationController
 
   def index
     @cart_item = CartItem.new #この記述はitem_detailのページにも記載,新規投稿のために使用
-    @cart_items = CartItem.all #ログイン中のユーザに結びついたカートアイテムが欲しい
-    @cart_items.customer_id = current_customer.id  #上の一行と合わせcurrent_customer.cart_itemsとしてもエラー
+    @cart_items = current_customer.cart_items #ログイン中のユーザに結びついたカートアイテムが欲しい
     @total = 0   #合計金額の算出に使用する変数
   end
 

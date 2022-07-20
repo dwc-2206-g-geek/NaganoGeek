@@ -2,7 +2,7 @@
 
 <%= form_with model: cart_item, local:true do |f| %>
   <div class="form-group">
-    <%= f.hidden_field :item_id, value: item.id %>  <!--cart.itemに今回のページのitemのidを代入したい-->
+    <%= f.hidden_field :item_id, value: item.id, class: 'form-control' %>  <!--cart.itemに今回のページのitemのidを代入したい-->
   </div>
   <div class="form-group">
     <%= f.select :amount, *[1..9],  include_blank: '個数選択', class: 'form-control' %>
