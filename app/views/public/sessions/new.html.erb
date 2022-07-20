@@ -3,7 +3,7 @@
 
     <h2>会員の方はこちらからログイン</h2>
 
-      <%= form_with model: @customer, url: session_path(resource_name) do |f| %>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
       <form>
 

@@ -1,1 +1,49 @@
-顧客詳細画面
+<div class="col-md-8 px-5 px-sm-0 mx-auto">
+  <h1>山田花子さんの会員詳細</h1>
+
+
+  <table class="mt-5 table table-borderless">
+  <tbody>
+   <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+    <tr>
+      <td>会員ID</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>氏名</td>
+      <td>山田花子</td>
+    </tr>
+    <tr>
+      <td>フリガナ</td>
+      <td>ヤマダ ハナコ</td>
+    </tr>
+    <tr>
+      <td>郵便番号</td>
+      <td>123456</td>
+    </tr>
+    <tr>
+      <td>住所</td>
+      <td>東京都渋谷区神南１丁目１９−１１ パークウェースクエア2 4階</td>
+    </tr>
+    <tr>
+      <td>電話番号</td>
+      <td>0368694700</td>
+    </tr>
+    <tr>
+      <td>メールアドレス</td>
+      <td>geek@gmail.com</td>
+    </tr>
+    <tr>
+      <td >会員ステータス</td>
+      <td class="text-success">有効</td>
+    </tr>
+  </tbody>
+  </table>
+
+   <%= link_to "編集する", class: 'btn btn-success' %>
+    <%= link_to "注文履歴一覧を見る",  class: 'btn btn-primary' %>
