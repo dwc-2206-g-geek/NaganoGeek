@@ -1,5 +1,5 @@
 class Public::CartItemsController < ApplicationController
-  # before_action :authenticate_customer!
+  before_action :authenticate_customer!
 
   def index
     @cart_item = CartItem.new #この記述はitem_detailのページにも記載,新規投稿のために使用
