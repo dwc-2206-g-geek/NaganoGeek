@@ -3,7 +3,7 @@
 <div class="h4 col-2 p-3 bg-light">商品新規登録</div>
 
 <div class="row offset-3">
-  <%= form_with model: @item, url: admin_items_path do |f| %>
+  <%= form_with model:@item, url: admin_items_path do |f| %>
   <table class="new-item-form">
     <tbody>
       <tr>
@@ -28,7 +28,7 @@
 
       <tr>
         <th>税抜価格</th>
-        <td><%= f.text_field :introduction %>円</td>
+        <td><%= f.text_field :price %>円</td>
       </tr>
 
       <tr>

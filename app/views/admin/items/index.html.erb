@@ -21,6 +21,7 @@
             <td><%= link_to item.name, class: "item_#{item.id}" %></td>
             <td><%= item.price %></td>
             <td><%= item.genre.name %></td>
+            <td></td>
             <td><% if item.is_active == false %>
                   販売中
                 <% else %>
