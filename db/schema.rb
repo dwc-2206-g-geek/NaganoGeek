@@ -89,32 +89,8 @@ ActiveRecord::Schema.define(version: 2022_07_18_105317) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
-  create_table "order_details", force: :cascade do |t|
-    t.integer "item_id"
-    t.integer "order_id"
-    t.integer "price"
-    t.integer "amount"
-    t.integer "making_status"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "genres", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-
-  create_table "orders", force: :cascade do |t|
-    t.integer "customer_id"
-    t.string "postal_code"
-    t.string "address"
-    t.string "name"
-    t.integer "shipping_cost"
-    t.integer "total_payment"
-    t.integer "payment_method"
-    t.integer "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -125,6 +101,29 @@ ActiveRecord::Schema.define(version: 2022_07_18_105317) do
     t.text "introduction"
     t.integer "price"
     t.boolean "is_active"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "order_details", force: :cascade do |t|
+    t.integer "item_id"
+    t.integer "order_id"
+    t.integer "price"
+    t.integer "amount"
+    t.integer "making_status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "customer_id"
+    t.string "postal_code"
+    t.string "address"
+    t.string "name"
+    t.integer "shipping_cost"
+    t.integer "total_payment"
+    t.integer "payment_method"
+    t.integer "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
