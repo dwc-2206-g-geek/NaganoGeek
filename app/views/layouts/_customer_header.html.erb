@@ -1,39 +1,38 @@
 <header>
-  
+
   <% if customer_signed_in? %>
-  
+
   <ul class="nav justify-content-end py-3" style="background-color:#faf0e6;">
     <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="/customers/my_page">マイページ</a>
+      <%= link_to "マイページ", my_page_path(current_user), class: "nav-link active" %>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/items">商品一覧</a>
+      <%= link_to "商品一覧", items_path, class: "nav-link active" %>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/cart_items">カート</a>
+      <%= link_to "カート", cart_items_path, class: "nav-link active" %>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/customers/sign_out" method: :delete>ログアウト</a>
+      <%= link_to "ログアウト", destroy_customer_sessions_path, method: :delete, class: "nav-link active" %>
     </li>
   </ul>
-    
+
   <% else %>
-  
+
   <ul class="nav justify-content-end py-3" style="background-color:#faf0e6;">
     <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="/about">About</a>
+      <%= link_to  "?About?", items_path, class: "nav-link active" %>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/items">商品一覧</a>
+      <%= link_to "商品一覧", items_path, class: "nav-link active" %>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/customers/sign_up">新規登録</a>
+      <%= link_to "新規登録", new_customer_registration_path, class: "nav-link active" %>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/customers/sign_in">ログイン</a>
+      <%= link_to "ログイン", new_admin_session_path, class: "nav-link active" %>
     </li>
-  </ul>
-  
+
   <% end %>
-    
+
 </header>
