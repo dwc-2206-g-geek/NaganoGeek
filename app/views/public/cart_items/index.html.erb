@@ -2,18 +2,23 @@
   <div class="row">
     <h1>ショッピングカート</h1>
 
-    <%= button_to "カートを空にする", destroy_all_path, method: :delete %>
+    <%= link_to "カートを空にする", destroy_all_path, method: :delete %>
 
     <%= render "cart", cart_items: @cart_items %><!--item: @itemも必要？-->
-    <table>
+  </div>
+  <div class="row">
+    <%= link_to "買い物を続ける" , items_path, class: "btn btn-success" %>
+    <table class="table table-bordered">
+      <thread>
       <tr>
         <th>合計金額</th>
         <td><%= @total %></td>
       </tr>
+      </thread>
     </table>
+  </div>
+    
 
-    <%= link_to "買い物を続ける" , items_path %>
-
-    <%= link_to "情報入力に進む",  order_new_path %>
+    <%= link_to "情報入力に進む",  order_path(current_customer.id) , class: "btn btn-success" %>
   </div>
 </div>
