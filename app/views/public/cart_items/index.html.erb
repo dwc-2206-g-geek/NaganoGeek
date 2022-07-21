@@ -2,10 +2,9 @@
   <div class="row">
     <h1>ショッピングカート</h1>
 
-    <%= button_to "カートを空にする", destroy_all_cart_item_index, method: :delete %>
+    <%= button_to "カートを空にする", destroy_all_path, method: :delete %>
 
-    <%= rander "cart" cart_items: @cart_items %><!--item: @itemも必要？-->
-
+    <%= render "cart", cart_items: @cart_items %><!--item: @itemも必要？-->
     <table>
       <tr>
         <th>合計金額</th>

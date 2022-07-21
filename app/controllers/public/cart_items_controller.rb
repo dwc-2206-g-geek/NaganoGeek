@@ -3,16 +3,17 @@ class Public::CartItemsController < ApplicationController
 
   def index
     @cart_item = CartItem.new #この記述はitem_detailのページにも記載,新規投稿のために使用
-    @cart_items = current_customer.cart_items #ログイン中のユーザに結びついたカートアイテムが欲しい
+    @cart_items = current_customer.cart_items
     @total = 0   #合計金額の算出に使用する変数
   end
 
-  def create #このアクション内でupdateとcreateにアクションを分岐する。もしデータがあったら、update,なかったらcreate
+  def create 
+    #   カートモデルにレコードを新規作成する
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.customer_id = current_customer.id
-    if current_customer.cart_items.find_by(item_id :cart_item_params[:item_id] ) #カート内に同一商品が存在するか調べる
+    @have_cart = current_customer.cart_items.find_by(item_id :cart_item_params[:item_id] ) 
+    if @have_cart #カート内に同一商品が存在するか調べる
     # もしカート内にデータがあったなら、同一商品を足してアップデート,@have_cartで既存のカート内の商品量を取得
-      @have_cart = current_customer.cart_items.find_by(product_id: product_id)
       @have_cart.amount += cart_item_params[:amount].to_i
       @have_cart.save
       redirect_to cart_items_path #投稿したらカートに遷移？
