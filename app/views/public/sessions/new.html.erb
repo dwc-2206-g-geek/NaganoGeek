@@ -3,9 +3,7 @@
 
     <h2>会員の方はこちらからログイン</h2>
 
-      <%= form_with model: @customer, url: session_path(resource_name) do |f| %>
-
-      <form>
+       <%= form_with model: @customer, url: session_path(resource_name) do |f| %>
 
         <div class="form-row mt-5">
           <%= f.label :メールアドレス, class: 'col-sm-2 col-form-label' %>
@@ -20,8 +18,6 @@
           <%= f.password_field :password, autocomplete: "current-password", class: 'form-control exampleInputPassword1' %>
           </div>
         </div>
-
-      </form>
 
   <% if devise_mapping.rememberable? %>
     <div class="field">
