@@ -22,7 +22,7 @@
             <td><%= item.price.to_s(:delimited) %>円</td>
             <td><%= item.genre.name %></td>
             <td></td>
-            <td><% if item.is_active == false %>
+            <td><% if item.is_active == True %>
                   <div class="text-success font-weight-bold">
                     販売中
                   </div>
