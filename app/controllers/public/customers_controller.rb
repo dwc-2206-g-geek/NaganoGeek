@@ -9,14 +9,14 @@ class Public::CustomersController < ApplicationController
   end
 
   def edit
-    @customer = current_customer.id
+    @customer = Customer.find(current_customer.id)
   end
 
   def update
-    @customer = current_customer.id
+    @customer = Customer.find(current_customer.id)
       if @customer.update(customer_params)
       flash[:notice] = "You have Update User successfully."
-      redirect_to my_page_path(@user.id)
+      redirect_to my_page_path
       else
       render :edit
       end
@@ -36,7 +36,7 @@ class Public::CustomersController < ApplicationController
     private
 
   def customer_params
-    params.require(:ustomer).permit(:name, :profile_image, :introduction)
+    params.require(:customer).permit(:email, :first_name, :last_name, :first_name_kana, :last_name_kana, :postal_code, :address, :telephone_number)
   end
 
 

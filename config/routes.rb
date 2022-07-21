@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     get 'customers/my_page', to: 'customers#show', as: 'my_page'
     get '/customers/information/edit', to: 'customers#edit', as: 'edit'
     get '/customers/unsubscribe', to: 'customers#unsubscribe', as: 'unsubscribe'
+    resources :customers, only: [:show, :edit, :update]
     
     resources :items, only: [:index, :show]
     resources :cart_items, only: [:create, :destroy, :update, :index]
