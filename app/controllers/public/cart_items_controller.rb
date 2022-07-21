@@ -11,9 +11,10 @@ class Public::CartItemsController < ApplicationController
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.customer_id = current_customer.id
     if current_customer.cart_items.find_by(item_id :cart_item_params[:item_id] ) #カート内に同一商品が存在するか調べる
-    # もしカート内にデータがあったなら、同一商品を足してアップデート
-      @cart_item.amount += cart_item_params[:amount].to_i
-      @cart_item.save
+    # もしカート内にデータがあったなら、同一商品を足してアップデート,@have_cartで既存のカート内の商品量を取得
+      @have_cart = current_customer.cart_items.find_by(product_id: product_id)
+      @have_cart.amount += cart_item_params[:amount].to_i
+      @have_cart.save
       redirect_to cart_items_path #投稿したらカートに遷移？
     else
       @cart_item.save
