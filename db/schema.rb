@@ -62,11 +62,11 @@ ActiveRecord::Schema.define(version: 2022_07_18_105317) do
   end
 
   create_table "cart_items", force: :cascade do |t|
+    t.integer "customer_id"
     t.integer "item_id"
     t.integer "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "customer_id"
   end
 
   create_table "customers", force: :cascade do |t|
