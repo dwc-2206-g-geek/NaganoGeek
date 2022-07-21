@@ -1,46 +1,43 @@
 <div class="col-md-8 px-5 px-sm-0 mx-auto">
-  
+
   <h1>顧客のマイページ</h1>
-  
+
   <h2>登録情報</h2>
    <%= link_to "編集する", edit_path(current_customer.id), class: 'btn btn-success' %>
-   
+
    <table class="table table-bordered">
   <tbody>
     <tr>
       <td class="table-active">氏名</td>
-      <td><%= customer.first_name %>&nbsp;<%= customer.last_name %></td>
+      <td><%= current_customer.first_name %>&nbsp;<%= current_customer.last_name %></td>
     </tr>
     <tr>
-      <tdclass="table-active">カナ</td>
-      <td><%= customer.first_name_kana %>&nbsp;<%= customer.last_name_kana %></td>
+      <td class="table-active">カナ</td>
+      <td><%= current_customer.first_name_kana %>&nbsp;<%= current_customer.last_name_kana %></td>
     </tr>
     <tr>
-      <tdclass="table-active">郵便番号</td>
-      <td><%= customer.postal_code %></td>
+      <td class="table-active">郵便番号</td>
+      <td><%= current_customer.postal_code %></td>
     </tr>
     <tr>
-      <tdclass="table-active">住所</td>
-      <td><%= customer.address %></td>
+      <td class="table-active">住所</td>
+      <td><%= current_customer.address %></td>
     </tr>
     <tr>
-      <tdclass="table-active">電話番号</td>
-      <td><%= customer.telephone_number %></td>
+      <td class="table-active">電話番号</td>
+      <td><%= current_customer.telephone_number %></td>
     </tr>
     <tr>
-      <tdclass="table-active">メールアドレス</td>
-      <td><%= customer.email %></td>
+      <td class="table-active">メールアドレス</td>
+      <td><%= current_customer.email %></td>
     </tr>
   </tbody>
 </table>
-   
+
    <h2>配送先</h2>
-     <%= link_to "一覧を見る", edit_path(current_customer.id), class: 'btn btn-primary' %>
+     <%= link_to "一覧を見る", addresses_path(current_customer.id), class: 'btn btn-primary' %>
    <h2>注文履歴</h2>
-     <%= link_to "一覧を見る", edit_path(current_customer.id), class: 'btn btn-primary' %>
-     
-     
-     <%= button_to 'ログアウト', destroy_customer_session_path, method: :delete %>
+     <%= link_to "一覧を見る", orders_path(current_customer.id), class: 'btn btn-primary' %>
 
 
 
