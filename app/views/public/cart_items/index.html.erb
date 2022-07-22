@@ -1,16 +1,26 @@
-<h1>ショッピングカート</h1>
+<div class="container">
+  <div class="row">
+    <div class="d-flex justify-content-between col-12 align-items-center">
+      <h5 style="padding:8px; background-color:#eeeeee;" class="block">ショッピングカート</h5>
 
-<%= button_to "カートを空にする", destroy_all_cart_item_index, method: :delete %>
+      <%= link_to "カートを空にする", destroy_all_path, method: :delete, class: "btn btn-danger" %>
+    </div>
 
-<%= rander "cart" cart_items: @cart_items>#item: @itemも必要？
+    <%= render "cart", cart_items: @cart_items %><!--item: @itemも必要？-->
+  </div>
+  <div class="d-flex flex-row align-items-center justify-content-between">
+    <%= link_to "買い物を続ける" , items_path, class: "btn btn-info col-2" %>
+    <table class="table table-bordered offset-6">
+      <tr>
+        <th class="col-2 table-secondary">合計金額</th>
+        <td class="col-2"><%= @total %></td>
+      </tr>
+    </table>
+  </div>
 
-<table>
-  <tr>
-    <th>合計金額</th>
-    <td><%= @total %>
-  </tr>
-</table
-
-<%= link_to "買い物を続ける" , items_path %>
-
-<%= link_to "情報入力に進む",  order_new_path %>
+  <div style="margin-top:10px;" class="col text-center">
+    <%= link_to "情報入力に進む",  order_path(current_customer.id) , class: "btn btn-success " %>
+  </div>
+  
+  <%= render "form", cart_item: @cart_item %>
+</div>

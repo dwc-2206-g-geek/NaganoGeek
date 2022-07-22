@@ -1,39 +1,47 @@
 <header>
-  
-  <% if customer_signed_in? %>
-  
-  <ul class="nav justify-content-end py-3" style="background-color:#faf0e6;">
-    <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="/customers/my_page">マイページ</a>
+
+  <ul class="nav border-bottom">
+    <li class="nav-item pl-2">
+       <%= link_to image_tag("naganocake_icon.png",size: '100x90' ), "/" %>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/items">商品一覧</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/cart_items">カート</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/customers/sign_out" method: :delete>ログアウト</a>
-    </li>
+
+    <% if customer_signed_in? %>
+
+    <ul class="nav ml-auto">
+      <li class="nav-item mx-2 d-flex align-items-center">
+        <%= link_to "マイページ", my_page_path(current_customer), class: "nav-link active btn btn-light" %>
+      </li>
+      <li class="nav-item mx-2 d-flex align-items-center">
+        <%= link_to "商品一覧", items_path, class: "nav-link active btn btn-light" %>
+      </li>
+      <li class="nav-item mx-2 d-flex align-items-center">
+        <%= link_to "カート", cart_items_path, class: "nav-link active btn btn-light" %>
+      </li>
+      <li class="nav-item mx-2 d-flex align-items-center">
+        <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "nav-link active btn btn-light" %>
+      </li>
+    </ul>
+
+    <% else %>
+
+    <ul class="nav ml-auto">
+
+      <li class="nav-item mx-2 d-flex align-items-center">
+        <%= link_to  "?About?", items_path, class: "nav-link active btn btn-light" %>
+      </li>
+      <li class="nav-item mx-2 d-flex align-items-center">
+        <%= link_to "商品一覧", items_path, class: "nav-link active btn btn-light" %>
+      </li>
+      <li class="nav-item mx-2 d-flex align-items-center">
+        <%= link_to "新規登録", new_customer_registration_path, class: "nav-link active btn btn-light" %>
+      </li>
+      <li class="nav-item mx-2 d-flex align-items-center">
+        <%= link_to "ログイン", new_admin_session_path, class: "nav-link active btn btn-light" %>
+      </li>
+    </ul>
+
+    <% end %>
+
   </ul>
-    
-  <% else %>
-  
-  <ul class="nav justify-content-end py-3" style="background-color:#faf0e6;">
-    <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="/about">About</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/items">商品一覧</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/customers/sign_up">新規登録</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/customers/sign_in">ログイン</a>
-    </li>
-  </ul>
-  
-  <% end %>
-    
+
 </header>
