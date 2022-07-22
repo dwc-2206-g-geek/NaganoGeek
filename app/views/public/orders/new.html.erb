@@ -1,6 +1,5 @@
 <div class='container'>
   <div class='row'>
-    <div class='col-md-3'>
 
       <div class="bg-secondary bg-opacity-10">
         <h5>注文情報入力</h5>
@@ -22,7 +21,8 @@
         <div class="form-check">
           <%= f.radio_button :address_number, 1 %>
           <%= f.label :address_number_1, "ご自身の住所", class: "form-check-label" %>
-          <%= current_customer.customer_address %>
+          <%= @customer.address_display %>
+
         </div>
 
         <div class="form-check">
@@ -34,10 +34,16 @@
           <div class="form-check">
             <%= f.radio_button :address_number, 3 %>
             <%= f.label :address_number_3, "新しいお届け先", class: "form-check-label" %>
+          </div>
+          <div class="form-group row">
             <%= f.label :postal_code, "郵便番号（ハイフンなし）" %>
             <%= f.text_field :postal_code %>
+          </div>
+          <div class="form-group row">
             <%= f.label :address, "住所" %>
             <%= f.text_field :address %>
+          </div>
+          <div class="form-group row">
             <%= f.label :address_name, "宛名" %>
             <%= f.text_field :address_name %>
           </div>
@@ -46,6 +52,5 @@
 
       <% end %>
 
-    </div>
   </div>
 </div>
