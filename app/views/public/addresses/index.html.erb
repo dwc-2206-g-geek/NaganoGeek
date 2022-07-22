@@ -1,3 +1,57 @@
+<<<<<<< HEAD
+<div class='container'>
+  <div class='row'>
+
+      <div class="bg-secondary bg-opacity-10">
+        <h1>配送先登録/一覧</h1>
+      </div>
+
+      <%= form_with model: @address do |f| %>
+
+        <div class="form-group row">
+          <%= f.label :postal_code, "郵便番号（ハイフンなし）" %>
+          <%= f.text_field :postal_code, class: 'form-control' %>
+        </div>
+        <div class="form-group row">
+          <%= f.label :address, "住所" %>
+          <%= f.text_field :address, class: 'form-control' %>
+        </div>
+        <div class="form-group row">
+          <%= f.label :name, "宛名" %>
+          <%= f.text_field :name, class: 'form-control' %>
+
+          <%= f.submit "新規登録",class: "btn btn-primary" %>
+        </div>
+
+      <% end %>
+
+      <table class='table table-hover table-bordered '>
+        <thead>
+          <tr>
+            <th>郵便番号</th>
+            <th>住所</th>
+            <th>宛名</th>
+            <th colspan="1"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @addresses.each do |address| %>
+            <tr>
+              <td><%= address.postal_code %></td>
+              <td><%= address.address %></td>
+              <td><%= address.name %></td>
+              <td>
+                <%= link_to "編集する", edit_address_path(address.id), class: "btn btn-primary" %>
+                <%= link_to "削除する", address_path(address.id), method: :delete, class: "btn btn-primary" %>
+              </td>
+            <tr>
+          <% end %>
+        </tbody>
+      </table>
+
+  </div>
+</div>
+=======
 <h1>配送先登録/一覧</h1>
 
 <%= f.radio_button :address_number, 3 %>
@@ -10,3 +64,4 @@
 <%= f.text_field :name %>
 <!-- 選んでもらったデータを送ります -->
 <%= f.submit "確認画面へ進む" %>
+>>>>>>> origin/develop
