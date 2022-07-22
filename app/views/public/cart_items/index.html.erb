@@ -1,26 +1,24 @@
 <div class="container">
   <div class="row">
-    <div class="d-flex justify-content-between col-12">
-      <h5 class="bg-secondary block">ショッピングカート</h5>
+    <div class="d-flex justify-content-between col-12 align-items-center">
+      <h5 style="padding:8px; background-color:#eeeeee;" class="block">ショッピングカート</h5>
 
       <%= link_to "カートを空にする", destroy_all_path, method: :delete, class: "btn btn-danger" %>
     </div>
 
     <%= render "cart", cart_items: @cart_items %><!--item: @itemも必要？-->
   </div>
-  <div class="row">
-    <%= link_to "買い物を続ける" , items_path, class: "btn btn-success" %>
-    <table class="table table-bordered table-sm">
-      <thread>
+  <div class="d-flex flex-row align-items-center justify-content-between">
+    <%= link_to "買い物を続ける" , items_path, class: "btn btn-info col-2" %>
+    <table class="table table-bordered offset-6">
       <tr>
-        <th>合計金額</th>
-        <td><%= @total %></td>
+        <th class="col-2 table-secondary">合計金額</th>
+        <td class="col-2"><%= @total %></td>
       </tr>
-      </thread>
     </table>
   </div>
 
-
-    <%= link_to "情報入力に進む",  order_path(current_customer.id) , class: "btn btn-success" %>
+  <div style="margin-top:10px;" class="col text-center">
+    <%= link_to "情報入力に進む",  order_path(current_customer.id) , class: "btn btn-success " %>
   </div>
 </div>
