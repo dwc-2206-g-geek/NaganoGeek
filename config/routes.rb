@@ -17,20 +17,16 @@ Rails.application.routes.draw do
     root :to =>"homes#top"
     get 'customers/my_page', to: 'customers#show', as: 'my_page'
     get '/customers/information/edit', to: 'customers#edit', as: 'edit'
-<<<<<<< HEAD
-    get '/customers/unsubscribe', to: 'customers#unsubscribe', as: 'unsubscribe'
-=======
     get '/customers/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
     patch '/customers/withdraw' => 'customers#withdraw', as: 'withdraw'
     resources :customers, only: [:show, :edit, :update]
->>>>>>> origin/develop
 
     resources :items, only: [:index, :show]
-    
+
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all', as: 'destroy_all'
     resources :cart_items, only: [:create, :destroy, :update, :index]
-   
-    
+
+
     get 'orders/complete' => 'orders#complete', as: 'complete'
     post 'orders/confirm' => 'orders#confirm', as: 'confirm'
     resources :orders, only: [:new, :create, :index, :show]
