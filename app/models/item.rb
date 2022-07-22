@@ -8,5 +8,10 @@ class Item < ApplicationRecord
   def add_tax_price
     (self.price * 1.10).round
   end
-
+  
+  # 税込み単価の算出,item.rbに記載が好ましい
+  def with_tax_price
+      (price * 1.1).floor
+  end
+  
 end

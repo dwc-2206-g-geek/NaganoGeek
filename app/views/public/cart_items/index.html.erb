@@ -1,16 +1,20 @@
-<h1>ショッピングカート</h1>
+<div class="container">
+  <div class="row">
+    <h1>ショッピングカート</h1>
 
-<%= button_to "カートを空にする", destroy_all_cart_item_index, method: :delete %>
+    <%= button_to "カートを空にする", destroy_all_cart_item_index, method: :delete %>
 
-<%= rander "cart" cart_items: @cart_items>#item: @itemも必要？
+    <%= rander "cart" cart_items: @cart_items %><!--item: @itemも必要？-->
 
-<table>
-  <tr>
-    <th>合計金額</th>
-    <td><%= @total %>
-  </tr>
-</table
+    <table>
+      <tr>
+        <th>合計金額</th>
+        <td><%= @total %></td>
+      </tr>
+    </table>
 
-<%= link_to "買い物を続ける" , items_path %>
+    <%= link_to "買い物を続ける" , items_path %>
 
-<%= link_to "情報入力に進む",  order_new_path %>
+    <%= link_to "情報入力に進む",  order_new_path %>
+  </div>
+</div>
