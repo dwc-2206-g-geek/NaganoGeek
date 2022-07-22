@@ -3,7 +3,7 @@ class Customer < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-<<<<<<< HEAD
+
 
   has_many :orders, dependent: :destroy
   has_many :addresses, dependent: :destroy
@@ -13,11 +13,14 @@ class Customer < ApplicationRecord
   end
 
 
-=======
+
          
   def active_for_authentication?
     super && (is_deleted == false)
   end
   
->>>>>>> origin/develop
+
+  has_many :cart_items, dependent: :destroy
+
+
 end
