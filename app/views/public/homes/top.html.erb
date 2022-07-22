@@ -1,23 +1,17 @@
   <div class="container">
-    <div class="row">
+    <div class="row pt-5">
 
-      <div class="col-2 py-3 text-center border">
-        <div class="h4">ジャンル検索</div>
+      <%= render 'public/homes/genre_search', genres: @genres %>
 
-        <% @genres.each do |genre| %>
-          <div><%= genre.name %></div>
-        <% end %>
-      </div>
-
-      <div class="col-10 p-5">
+      <div class="col-10 pl-5">
         <div class="card" style="width:align-self-center;">
           <%= image_tag "top_image", class:"card-img"%>
-            <div class="card-img-overlay">
-              <p>ようこそ、ながのCAKEへ！<br>
+            <div class="card-img-overlay d-flex align-items-center justify-content-center">
+              <h4 class="bg-light p-4">ようこそ、ながのCAKEへ！<br>
                  このサイトは、ケーキ販売のECサイトになります。<br>
                  会員ではない方も商品の閲覧はできますが、<br>
                  購入には会員登録が必要になります。
-              </p>
+              </h4>
             </div>
         </div>
       </div>
@@ -26,8 +20,27 @@
       <div class="col-2 p-3">
       </div>
 
-      <div class="col-10 p-3">
+      <div class="col-10 p-5">
         <h3><strong>新着商品</strong></h3>
+
+        <% @new_items.each do |item| %>
+
+        <item class="mx-3 my-5">
+
+            <%= link_to item_path(item.id) do %>
+              <% if item.image.attached? %>
+                <%= image_tag item.image, size: "120x120" %>
+              <% else %>
+                <%= image_tag 'noimage_icon', size: "120x120" %>
+              <% end %><br>
+              <%= item.name %><br>
+            <% end %>
+            <%= item.add_tax_price.to_s(:delimited) %>円
+
+        </item>
+
+        <% end %>
+
       </div>
     </div>
   </div>
