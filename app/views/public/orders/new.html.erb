@@ -1,1 +1,56 @@
-<h1>注文情報入力画面(支払方法・配送先の選択)</h1>
+<div class='container'>
+  <div class='row'>
+
+      <div class="bg-secondary bg-opacity-10">
+        <h5>注文情報入力</h5>
+      </div>
+
+      <%= form_with model: @order, url: confirm_path do |f| %>
+
+        <strong>支払い方法</strong>
+        <div class="form-check">
+          <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+          <%= f.label :payment_method, Order.payment_methods_i18n[:credit_card], class: "form-check-label" %>
+        </div>
+        <div class="form-check">
+          <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
+          <%= f.label :payment_method, Order.payment_methods_i18n[:transfer], class: "form-check-label" %>
+        </div>
+
+        <strong>お届け先</strong>
+        <div class="form-check">
+          <%= f.radio_button :address_number, 1 %>
+          <%= f.label :address_number_1, "ご自身の住所", class: "form-check-label" %>
+          <%= @customer.address_display %>
+
+        </div>
+
+        <div class="form-check">
+          <%= f.radio_button :address_number, 2 %>
+          <%= f.label :address_number_2, "登録先住所から選択", class: "form-check-label" %>
+          <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display), class: "form-select" %>
+        </div>
+
+          <div class="form-check">
+            <%= f.radio_button :address_number, 3 %>
+            <%= f.label :address_number_3, "新しいお届け先", class: "form-check-label" %>
+          </div>
+          <div class="form-group row">
+            <%= f.label :postal_code, "郵便番号（ハイフンなし）" %>
+            <%= f.text_field :postal_code %>
+          </div>
+          <div class="form-group row">
+            <%= f.label :address, "住所" %>
+            <%= f.text_field :address %>
+          </div>
+          <div class="form-group row">
+            <%= f.label :address_name, "宛名" %>
+            <%= f.text_field :address_name %>
+          </div>
+
+        <%= f.submit "確認画面へ進む",class: "btn btn-primary" %>
+
+      <% end %>
+
+  </div>
+</div>
