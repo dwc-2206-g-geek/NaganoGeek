@@ -1,16 +1,12 @@
 class Public::AddressesController < ApplicationController
 
   def index
-<<<<<<< HEAD
     @addresses = Address.all
     @address = Address.new
-=======
->>>>>>> origin/develop
 
   end
 
   def edit
-<<<<<<< HEAD
     @address = Address.find(params[:id])
     unless @address.customer == current_customer
       redirect_to  addresses_path
@@ -28,19 +24,6 @@ class Public::AddressesController < ApplicationController
        @addresses = Address.all
       render :index
     end
-=======
-
-  end
-
-  def create
-    @adress = Adress.new(adress_params)
-    if @adress.save
-      # redirect_to adresses_url(id: current_user.id)
-      redirect_to adresses_path
-    else
-      render 'new'
-
->>>>>>> origin/develop
   end
 
   def update
@@ -48,7 +31,6 @@ class Public::AddressesController < ApplicationController
   end
 
   def destroy
-<<<<<<< HEAD
     @addresses = Address.all
     @address = Address.find(params[:id])
     if @address.customer != current_customer
@@ -64,14 +46,6 @@ class Public::AddressesController < ApplicationController
 
   def address_params
     params.require(:address).permit(:customer_id, :postal_code, :address, :name)
-=======
-
-  end
-
-  private
-  def adress_params
-    params.require(:adress).permit(:customer_id, :postal_code, :address, :name)
->>>>>>> origin/develop
   end
 
 end

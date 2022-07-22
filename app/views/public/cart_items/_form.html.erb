@@ -3,7 +3,7 @@
   <div class="col-6 offset-6">
     <%= form_with model: cart_item, local:true do |f| %>
       <div class="form-group">
-        <%= f.hidden_field :item_id, value: cart_item.item_id, class: 'form-control' %>  <!--cart.itemに今回のページのitemのidを代入したい item.id-->
+        <%= f.hidden_field :item_id, value: item_id, class: 'form-control' %>  <!--cart.itemに今回のページのitemのidを代入したい item.id-->
       </div>
       <div class="form-group d-flex justify-content-between">
         <%= f.select :amount, *[1..10], include_blank: '個数選択', class: 'form-control text-info' %>
