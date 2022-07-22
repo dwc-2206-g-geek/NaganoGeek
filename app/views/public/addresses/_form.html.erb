@@ -1,0 +1,12 @@
+<% form_with model:address do |f| %>
+    <%= f.radio_button :address_number, 3 %>
+    <%= f.label :address_number_3, "新しいお届け先" %>
+    <%= f.label :postal_code, '郵便番号' %>
+    <%= f.text_field :postal_code, autofocus: true %>
+    <%= f.label :address, "住所" %>
+    <%= f.text_field :address %>
+    <%= f.label :name, "宛名" %>
+    <%= f.text_field :name %>
+    <!-- 選んでもらったデータを送ります -->
+    <%= f.submit "確認画面へ進む" %>
+<% end %>
