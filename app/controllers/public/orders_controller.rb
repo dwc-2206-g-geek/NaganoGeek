@@ -35,8 +35,7 @@ class Public::OrdersController < ApplicationController
     redirect_to confirm_path
   end
   @cart_items = current_customer.cart_items.all
-  @total = @cart_items.inject(0) { |sum, item| sum + item.sum_price }
-
+  @total = 0
   end
 
   def complete
