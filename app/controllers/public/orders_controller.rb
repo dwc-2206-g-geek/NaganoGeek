@@ -10,18 +10,21 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     # @order = Order.new(order_params)
-    @address = Address.find(params[:order][:address_id])
-    @order.postal_code = @address.postal_code
-    @order.address = @address.address
-    @order.name = @address.name
+    # @address = Address.find(params[:order][:address_id])
+    # @order.postal_code = @address.postal_code
+    # @order.address = @address.address
+    # @order.name = @address.name
 
     @order = Order.new(order_params)
+    @address = Address.find(params[:order][:address_id])
   if params[:order][:address_number] == "1"
-    @order.address = current_customer.customer_address
+    @order.name = current_customer.first_name + current_customer.last_name
+    @order.address = current_customer.address
   elsif params[:order][:address_number] == "2"
-    if Address.exists?(name: params[:order][:registered])
-      @order.name = Address.find(params[:order][:registered]).name
-      @order.address = Address.find(params[:order][:registered]).address
+    if Address.exists?(name: params[:order][:address_id])
+      @order.postal_code = @address.postal_code
+      @order.address = @address.address
+      @order.name = @address.name
     else
       render :new
     end
@@ -36,6 +39,7 @@ class Public::OrdersController < ApplicationController
   end
   @cart_items = current_customer.cart_items.all
   @total = 0
+  @total_payment = 0
   end
 
   def complete
@@ -54,7 +58,7 @@ class Public::OrdersController < ApplicationController
       order_item.order_price = cart.item.price
       order_item.save
     end
-    redirect_to confirm_path
+    redirect_to complete_path
     cart_items.destroy_all
   else
     @order = Order.new(order_params)
