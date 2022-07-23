@@ -10,7 +10,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    
+
     <header class="header">
       <% if request.fullpath.include? "admin"  %>
         <%= render 'layouts/admin_header' %>
@@ -18,10 +18,10 @@
         <%= render 'layouts/customer_header' %>
       <% end %>
     </header>
-    
+
     <main>
       <%= yield %>
     </main>
-    
+
   </body>
 </html>
