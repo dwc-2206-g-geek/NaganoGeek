@@ -16,12 +16,12 @@ class Public::OrdersController < ApplicationController
     # @order.name = @address.name
 
     @order = Order.new(order_params)
-    @address = Address.find(params[:order][:address_id])
   if params[:order][:address_number] == "1"
     @order.name = current_customer.first_name + current_customer.last_name
     @order.address = current_customer.address
   elsif params[:order][:address_number] == "2"
-    if Address.exists?(name: params[:order][:address_id])
+    if Address.where(id: params[:order][:address_id])
+      @address = Address.find(params[:order][:address_id])
       @order.postal_code = @address.postal_code
       @order.address = @address.address
       @order.name = @address.name
@@ -40,6 +40,7 @@ class Public::OrdersController < ApplicationController
   @cart_items = current_customer.cart_items.all
   @total = 0
   @total_payment = 0
+  @order.shipping_cost = 800
   end
 
   def complete
