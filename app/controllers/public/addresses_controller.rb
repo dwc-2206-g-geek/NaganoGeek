@@ -3,6 +3,10 @@ class Public::AddressesController < ApplicationController
   def index
     @addresses = Address.all
     @address = Address.new
+<<<<<<< HEAD
+
+=======
+>>>>>>> origin/develop
   end
 
   def edit

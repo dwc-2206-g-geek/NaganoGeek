@@ -1,5 +1,36 @@
-<h1>注文履歴画面</h1>
+<div class='container'>
+  <div class='row'>
+    <div class="bg-secondary bg-opacity-10">
+      <h1>注文履歴画面</h1>
+    </div>
 
+<<<<<<< HEAD
+      <table class='table table-hover table-bordered '>
+        <thead>
+          <tr>
+          <th>注文日</th>
+          <th>配送先</th>
+          <th>注文商品</th>
+      　　　<th>支払金額</th>
+      　　　<th>ステータス</th>
+      　　　<th>注文詳細</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
+              <td>
+                <%= order.postal_code %><br>
+                <%= order.address %><br>
+                <%= order.name %>
+              </td>
+              <td><%= order.cart_item.item %></td>
+              <td><%= order.total_payment %></td>
+              <td><%= order.status %></td>
+              <td><%= link_to "表示する", class: "btn btn-primary" %>
+            <tr>
+=======
 <table class='table table-hover table-inverse'>
   <thead>
     <tr>
@@ -37,8 +68,9 @@
             <div class="form-group">
               <%= f.submit "変更", class: 'btn btn-success' %>
             </div>
+>>>>>>> origin/develop
           <% end %>
-        </td> <!--　数量をカート内でも変更できるようにしたい、 item: cart_item.item も必要？　-->
-        <td><%= cart_item.subtotal %></td>
-        <td><%= link_to '削除する', cart_item_path, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger" %></td>
-        <% @total +=  cart_item.subtotal %>
+        </tbody>
+      </table>
+  </div>
+</div>
