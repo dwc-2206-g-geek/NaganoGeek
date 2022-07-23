@@ -6,7 +6,6 @@
       <div class="col ml-5">
         <h3><strong>商品一覧</h3>(全<%= @item_all.count %>件)</strong><br>
 
-
       <div class="row">
         <% @item_all.each do |item| %>
 
@@ -22,18 +21,14 @@
           <%= item.add_tax_price.to_s(:delimited) %>円
         </item>
 
-  
-
         <% end %>
       </div>
 
-
-
-    </div>
-    <div class="offset-7">
-      <%= paginate @items %>
-    </div>
   </div>
+  <div class="offset-7 mb-5">
+    <%= paginate @items %>
+  </div>
+</div>
 
 
 
