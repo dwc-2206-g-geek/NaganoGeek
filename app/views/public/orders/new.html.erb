@@ -22,7 +22,6 @@
           <%= f.radio_button :address_number, 1 %>
           <%= f.label :address_number_1, "ご自身の住所", class: "form-check-label" %>
           <%= @customer.address_display %>
-
         </div>
 
         <div class="form-check">
@@ -44,8 +43,8 @@
             <%= f.text_field :address %>
           </div>
           <div class="form-group row">
-            <%= f.label :address_name, "宛名" %>
-            <%= f.text_field :address_name %>
+            <%= f.label :name, "宛名" %>
+            <%= f.text_field :name %>
           </div>
 
         <%= f.submit "確認画面へ進む",class: "btn btn-primary" %>

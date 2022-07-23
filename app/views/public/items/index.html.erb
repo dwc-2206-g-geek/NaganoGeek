@@ -1,13 +1,7 @@
-<div class="container my-5">
-    <div class="row">
+<div class="container">
+    <div class="row pt-5">
 
-      <div class="col-2 py-3 mr-5 text-center border">
-        <div class="h4">ジャンル検索</div>
-
-        <% @genres.each do |genre| %>
-          <div><%= genre.name %></div>
-        <% end %>
-      </div>
+      <%= render 'public/homes/genre_search', genres: @genres %>
 
       <div class="col ml-5">
         <h3><strong>商品一覧</h3>(全<%= @item_all.count %>件)</strong><br>
@@ -27,6 +21,8 @@
           <% end %>
           <%= item.add_tax_price.to_s(:delimited) %>円
         </item>
+
+  
 
         <% end %>
       </div>

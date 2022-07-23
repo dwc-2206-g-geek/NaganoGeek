@@ -11,7 +11,7 @@ class Public::CartItemsController < ApplicationController
     #   カートモデルにレコードを新規作成する
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.customer_id = current_customer.id
-    @have_cart = current_customer.cart_items.find_by(item_id :cart_item_params[:item_id] )
+    @have_cart = current_customer.cart_items.find_by(item_id: cart_item_params[:item_id] )
     if @have_cart #カート内に同一商品が存在するか調べる
     # もしカート内にデータがあったなら、同一商品を足してアップデート,@have_cartで既存のカート内の商品量を取得
       @have_cart.amount += cart_item_params[:amount].to_i
@@ -37,7 +37,7 @@ class Public::CartItemsController < ApplicationController
   def destroy
     @cart_item = CartItem.find(params[:id])
     @cart_item.destroy
-    redirect_to current_cart
+    redirect_to request.referer
   end
 
 
