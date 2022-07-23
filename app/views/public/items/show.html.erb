@@ -15,8 +15,11 @@
         <h2 class="my-3"><strong><%= @item.name %></strong></h2>
         <h4 class="mb-5"><%= @item.introduction %></h4>
         <h4 class="mt-5"><strong>¥<%= @item.add_tax_price.to_s(:delimited) %>(税込)</strong></h4>
-
+        <%= render 'public/cart_items/form', cart_item: @cart_item, item: @item %>
       </div>
+
+
+
 
     </div>
 
