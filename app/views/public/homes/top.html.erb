@@ -16,31 +16,38 @@
         </div>
       </div>
 
+    </div>
 
+    <div class="row">
       <div class="col-2 p-3">
       </div>
 
-      <div class="col-10 p-5">
+      <div class="col-10 pt-5 pr-5 pl-5">
         <h3><strong>新着商品</strong></h3>
 
         <% @new_items.each do |item| %>
-
-        <item class="mx-3 my-5">
-
+          <item class="d-inline-block mx-3 my-5">
             <%= link_to item_path(item.id) do %>
               <% if item.image.attached? %>
-                <%= image_tag item.image, size: "120x120" %>
+                <%= image_tag item.image, size: "165x165" %>
               <% else %>
-                <%= image_tag 'noimage_icon', size: "120x120" %>
+                <%= image_tag 'noimage_icon', size: "165x165" %>
               <% end %><br>
               <%= item.name %><br>
             <% end %>
             <%= item.add_tax_price.to_s(:delimited) %>円
-
-        </item>
-
-        <% end %>
+          </item>
+      <% end %>
 
       </div>
     </div>
+
+    <div class="row">
+
+      <div class="col text-right">
+        <%= link_to "全ての商品を見る>", items_path %>
+      </div>
+
+    </div>
+
   </div>
