@@ -3,7 +3,7 @@ class Public::ItemsController < ApplicationController
     @items = Item.all.page(params[:page]).per(8)
     @genres = Genre.all
     @item_all = Item.all.where(is_active: 'true')
-    
+
   end
 
   def show
@@ -11,6 +11,6 @@ class Public::ItemsController < ApplicationController
     @genres = Genre.all
     @cart_item = CartItem.new
   end
-  
-  
+
+
 end
