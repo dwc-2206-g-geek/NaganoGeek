@@ -34,7 +34,7 @@
     <table class="table table-bordered">
       <tr>
     	  <th class="table-secondary">送料</th>
-    	  <th><%= @order.shipping_cost %></th>
+    	  <th><%= @order.shipping_cost.to_s(:delimited, delimiter: ',') %></th>
       </tr>
       <tr>
     	  <th class="table-secondary">商品合計</th>
@@ -42,10 +42,9 @@
       </tr>
       <tr>
         <th class="table-secondary">請求金額</th>
-        <%# @order.total_payment.to_s(:delimited, delimiter: ',') %>
         <th>
           <% @total_payment = @total + @order.shipping_cost.to_i %>
-          <%= @total_payment %>
+          <%= @total_payment.to_s(:delimited, delimiter: ',') %>
         </th>
       </tr>
     </table>

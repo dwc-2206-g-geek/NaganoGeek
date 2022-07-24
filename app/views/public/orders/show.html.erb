@@ -24,7 +24,7 @@
         </tr>
         <tr>
           <th>ステータス</th>
-          <td><%= @order.status %></td>
+          <td><%= @order.status_i18n %></td>
         </tr>
       </thead>
     </table>
@@ -38,7 +38,7 @@
       </tr>
       <tr>
     	  <th class="table-secondary">送料</th>
-    	  <th><%= @order.shipping_cost %></th>
+    	  <th><%= @order.shipping_cost.to_s(:delimited, delimiter: ',') %></th>
       </tr>
       <tr>
         <th class="table-secondary">請求金額</th>
@@ -74,11 +74,9 @@
             <td><%= order_detail.item.with_tax_price.to_s(:delimited, delimiter: ',') %></td>
             <td><%= order_detail.amount %></td>
             <td><%= order_detail.subtotal.to_s(:delimited, delimiter: ',') %></td>
-            <% @total +=  order_detail.subtotal %>
           </tr>
         <% end %>
       </tbody>
     </table>
 
   </div>
-</div>
