@@ -29,9 +29,9 @@
           <item class="d-inline-block mx-3 my-5">
             <%= link_to item_path(item.id) do %>
               <% if item.image.attached? %>
-                <%= image_tag item.image, size: "165x165" %>
+                <%= image_tag item.image, size: "160x160" %>
               <% else %>
-                <%= image_tag 'noimage_icon', size: "165x165" %>
+                <%= image_tag 'noimage_icon', size: "160x160" %>
               <% end %><br>
               <%= item.name %><br>
             <% end %>
