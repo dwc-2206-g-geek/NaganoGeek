@@ -26,19 +26,18 @@ class Public::AddressesController < ApplicationController
   end
 
   def update
-
+    @address = Address.find(params[:id])
+    @address.update(address_params)
+    # flash[:notice] = "Address was successfully updated."
+    redirect_to addresses_path
   end
 
   def destroy
     @addresses = Address.all
     @address = Address.find(params[:id])
-    if @address.customer != current_customer
-      redirect_to  address_path
-    else
-      @address.destroy
-      # flash[:notice] = "Address was successfully destroyed."
-      redirect_to addresses_path
-    end
+    @address.destroy
+    # flash[:notice] = "Address was successfully destroyed."
+    redirect_to addresses_path
   end
 
   private
