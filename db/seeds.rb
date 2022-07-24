@@ -10,3 +10,27 @@ Admin.create!(
    email: 'geek@gmail.com',
    password: '123456',
 )
+
+Genre.create!(
+   name: "ケーキ"
+)
+
+Genre.create!(
+   name: "焼き菓子"
+)
+
+Genre.create!(
+   name: "プリン"
+)
+
+Genre.create!(
+   name: "キャンディ"
+)
+
+Item.create!(
+   genre_id: 1,
+   name: "ショートケーキ",
+   introduction: "いちごたっぷりショートケーキ",
+   price: 450,
+   is_active: true
+)
