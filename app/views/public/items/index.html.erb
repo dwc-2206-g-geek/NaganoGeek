@@ -6,34 +6,32 @@
       <div class="col ml-5">
         <h3><strong>商品一覧</h3>(全<%= @item_all.count %>件)</strong><br>
 
+        <div class="row">
+          <% @item_all.each do |item| %>
 
-      <div class="row">
-        <% @item_all.each do |item| %>
+          <item class="mx-3 my-5 text-center">
+            <%= link_to item_path(item.id) do %>
+              <% if item.image.attached? %>
+                <%= image_tag item.image, size: "180x180" %>
+              <% else %>
+                <%= image_tag 'noimage_icon', size: "180x180" %>
+              <% end %><br>
+              <%= item.name %><br>
+            <% end %>
+            <%= item.add_tax_price.to_s(:delimited) %>円
+          </item>
 
-        <item class="mx-3 my-5">
-          <%= link_to item_path(item.id) do %>
-            <% if item.image.attached? %>
-              <%= image_tag item.image, size: "180x180" %>
-            <% else %>
-              <%= image_tag 'noimage_icon', size: "180x180" %>
-            <% end %><br>
-            <%= item.name %><br>
           <% end %>
-          <%= item.add_tax_price.to_s(:delimited) %>円
-        </item>
-
-  
-
-        <% end %>
+        </div>
       </div>
-
-
-
     </div>
-    <div class="offset-7">
-      <%= paginate @items %>
-    </div>
+
+  <div class="offset-7 mb-5">
+    <%= paginate @items %>
   </div>
+
+
+</div>
 
 
 
