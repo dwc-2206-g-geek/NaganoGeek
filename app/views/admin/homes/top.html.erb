@@ -1,0 +1,27 @@
+<div class='container'>
+  <div class='row'>
+    <div class="bg-secondary bg-opacity-10">
+      <h1>注文履歴画面</h1>
+    </div>
+
+      <table class='table table-bordered '>
+        <thead>
+          <tr>
+            <th>購入日時</th>
+            <th>購入者</th>
+            <th>注文個数</th>
+            <th>注文ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @order_details.each do |order_detail| %>
+            <tr>
+              <td><%= order_detail.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
+              <td><%= order_detail.amount %></td>
+              <td><%= order_detail.order.status %></td>
+            <tr>
+          <% end %>
+        </tbody>
+      </table>
+  </div>
+</div>
