@@ -21,7 +21,7 @@ class Public::AddressesController < ApplicationController
     else
       @customer = current_customer
        @addresses = Address.all
-      render :index
+      redirect_to request.referer
     end
   end
 

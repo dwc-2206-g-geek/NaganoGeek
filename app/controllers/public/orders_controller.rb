@@ -34,7 +34,7 @@ class Public::OrdersController < ApplicationController
       render :new
     end
   else
-    redirect_to new_order_path
+    redirect_to request.referer
   end
   @cart_items = current_customer.cart_items.all
   @total = 0
@@ -84,7 +84,7 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:postal_code, :address, :name, :shipping_cost, :total_payment, :payment_method, :status,:created_at)
+    params.require(:order).permit(:postal_code, :address, :name, :shipping_cost, :total_payment, :payment_method, :status, :created_at)
   end
 
   def address_params
