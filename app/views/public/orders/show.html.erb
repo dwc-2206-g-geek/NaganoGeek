@@ -1,17 +1,18 @@
 <div class='container'>
-  <div class='row'>
-    <h1>注文履歴詳細画面</h1>
+  <h1 class="mt-4">注文履歴詳細画面</h1>
+    <div class='row'>
 
-    <strong>注文情報</strong>
+    <div class="col-md-7 px-5 px-sm-0 mx-auto mt-4">
+    <p class="font-weight-bold h5">注文情報</p>
 
      <table class='table table-hover table-bordered '>
       <thead>
         <tr>
-          <th>注文日</th>
+          <th class="table-secondary">注文日</th>
           <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
         </tr>
         <tr>
-          <th>配送先</th>
+          <th class="table-secondary">配送先</th>
           <td>
             <%= '〒' + @order.postal_code.to_s %><br>
             <%= @order.address %><br>
@@ -19,17 +20,19 @@
           </td>
         </tr>
         <tr>
-          <th>支払方法</th>
+          <th class="table-secondary">支払方法</th>
           <td><%= @order.payment_method_i18n %></td>
         </tr>
         <tr>
-          <th>ステータス</th>
+          <th class="table-secondary">ステータス</th>
           <td><%= @order.status_i18n %></td>
         </tr>
       </thead>
     </table>
+    </div>
 
-    <strong>請求情報</strong>
+  <div class="col-md-4 px-5 px-sm-0 mx-auto mt-4">
+  <p class="font-weight-bold h5">請求情報</p>
 
     <table class="table table-bordered">
       <tr>
@@ -48,8 +51,10 @@
         </th>
       </tr>
     </table>
+  </div>
 
-    <strong>注文内容</strong>
+  <div class="col mt-4">
+    <p class="font-weight-bold h5">注文内容</p>
 
     <table class='table table-hover  table-bordered'>
       <thead>
@@ -68,7 +73,7 @@
                   <%= image_tag order_detail.item.image, size: "50x50" %>
                 <% else %>
                   <%= image_tag 'noimage_icon', size: "50x50" %>
-                <% end %><br>
+                <% end %>
               <%= order_detail.item.name %>
             </td>
             <td><%= order_detail.item.with_tax_price.to_s(:delimited, delimiter: ',') %></td>
@@ -78,5 +83,8 @@
         <% end %>
       </tbody>
     </table>
+  </div>
+
+</div>
 
   </div>
