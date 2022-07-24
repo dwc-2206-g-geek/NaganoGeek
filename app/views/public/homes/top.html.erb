@@ -25,13 +25,13 @@
       <div class="col-10 pt-5 pr-5 pl-5">
         <h3><strong>新着商品</strong></h3>
 
-        <% @new_items.each do |item| %>
+        <% @new_items.reverse_each do |item| %>
           <item class="d-inline-block mx-3 my-5">
             <%= link_to item_path(item.id) do %>
               <% if item.image.attached? %>
-                <%= image_tag item.image, size: "165x165" %>
+                <%= image_tag item.image, size: "160x160" %>
               <% else %>
-                <%= image_tag 'noimage_icon', size: "165x165" %>
+                <%= image_tag 'noimage_icon', size: "160x160" %>
               <% end %><br>
               <%= item.name %><br>
             <% end %>
@@ -44,7 +44,7 @@
 
     <div class="row">
 
-      <div class="col text-right">
+      <div class="col text-right mb-5">
         <%= link_to "全ての商品を見る>", items_path %>
       </div>
 
