@@ -3,6 +3,13 @@ class Order < ApplicationRecord
   belongs_to :customer
   has_many :order_details, dependent: :destroy
 
+  validates :payment_method, presence: true
+  validates :address_number, presence: true
+  VALID_POSTAL_CODE_REGEX = /\A\d{7}\z/
+  validates :postal_code, presence: true, format: { with: VALID_POSTAL_CODE_REGEX }
+  validates :address, presence: true
+  validates :name, presence: true
+
   def address_display
   '〒' + postal_code + ' ' + address
   end
