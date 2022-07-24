@@ -12,7 +12,6 @@ ja:
         preparing_delivery: "発送準備中"
         delivered: "発送済み"
 
-<<<<<<< HEAD
         making_status:
           production_not_possible: "製作不可"
           production_pending: "製作待ち"
@@ -23,11 +22,10 @@ ja:
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
-=======
+
     order_detail:
       making_status:
         production_not_possible: "製作不可"
         production_pending: "製作待ち"
         in_production: "製作中"
         production_complete: "製作完了"
->>>>>>> origin/develop

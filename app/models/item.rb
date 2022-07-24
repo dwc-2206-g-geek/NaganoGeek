@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   validates :genre_id, presence: true
   validates :introduction, presence: true
   validates :price, presence: true
-  #validates :is_active, presence: true
+  validates :is_active, presence: true
 
   def add_tax_price
     (self.price * 1.10).floor
