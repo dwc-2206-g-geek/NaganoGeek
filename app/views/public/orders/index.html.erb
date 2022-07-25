@@ -1,12 +1,11 @@
-<div class='container'>
+<div class="container">
   <div class='row'>
-    <div class="bg-secondary bg-opacity-10">
+    <div class="col-md-10 px-5 px-sm-0 mx-auto mt-4">
       <h1>注文履歴画面</h1>
-    </div>
 
       <table class='table table-hover table-bordered '>
         <thead>
-          <tr>
+          <tr class="table-active">
           <th>注文日</th>
           <th>配送先</th>
           <th>注文商品</th>
@@ -29,7 +28,7 @@
                   <%= o.item.name %><br>
                 <% end %>
               </td>
-              <td><%= order.total_payment.to_s(:delimited, delimiter: ',') %></td>
+              <td><%= order.total_payment.to_s(:delimited, delimiter: ',') %>円</td>
               <td><%= order.status_i18n %></td>
               <td><%= link_to "表示する", order_path(order.id), class: "btn btn-primary" %>
             <tr>
