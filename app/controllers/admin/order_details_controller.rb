@@ -1,19 +1,22 @@
 class Admin::OrderDetailsController < ApplicationController
 
   def update
-    @order_detail = OrderDetail.find(params[:id])
+    @order = Order.find(params[:order_id])
+    @order_detail = @order.order_details.find(params[:id])
     @order_detail.update(order_detail_params)
+    if @order_detail.making_status == "in_production"
+      @order.update(status: 2)
+    elsif @order.order_details.production_complete.count == @order.order_details.count
+      @order.update(status: 3)
+    end
     redirect_to request.referer
-
-    # making_status
-    # if @form_inquiry.update(form_inquiry_params)
-    #   redirect_to admin_form_inquiry_path(@form_inquiry), notice: "製作ステータスを更新しました"
-    # else
-    #   render :show, alert: "製作ステータスを更新できませんでした"
-    # end
   end
 
 private
+
+  def order_params
+    params.require(:order).permit(:postal_code, :address, :name, :shipping_cost, :total_payment, :payment_method, :status, :created_at)
+  end
 
   def order_detail_params
     params.require(:order_detail).permit(:item_id, :order_id, :name, :price, :amount, :making_status, :created_at)
