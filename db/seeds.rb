@@ -47,3 +47,11 @@ Item.create!(
    price: 450,
    is_active: true
 )
+
+
+Address.create!(
+   customer_id: 1,
+   postal_code: "1234567",
+   address: "神奈川県横浜市",
+   name: "斎藤さん"
+   )
