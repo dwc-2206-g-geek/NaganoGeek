@@ -11,6 +11,19 @@
    password: '123456',
  )
 
+ Customer.create!(
+   first_name: '山田',
+   last_name: '太郎',
+   first_name_kana: 'ヤマダ',
+   last_name_kana: 'タロウ',
+   postal_code: '1234567',
+   address: '大阪市大阪府',
+   telephone_number: '1234567',
+   is_deleted: false,
+   email: 'yamada@gmail.com',
+   password: '123456',
+   )
+
  Genre.create!(
    name: "ケーキ"
  )
