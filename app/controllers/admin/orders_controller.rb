@@ -12,22 +12,35 @@ class Admin::OrdersController < ApplicationController
   end
 
   def update
-    # @order = Order.find(params[:id])
-    # if @order.update(status_params)
-    #   redirect_to request.referer, notice: "受注ステータスを更新しました"
-    # else
-    #   redirect_to request.referer, alert: "受注ステータスを更新できませんでした"
-    # end
-
     @order = Order.find(params[:id])
-    @order.update(order_params)
-    redirect_to request.referer
+    @order_details = @order.order_details
+    if @order.update(order_params)
+      # @order.order_details.update_all(making_status: 1)
+      @order.status == 1 if @order_details.update_all(making_status: 1)
+      # @order.status == 1 if @order.order_details.update_all(making_status: 1)
+      # @order.update(status: 1) if @order.order_details.update_all(making_status: 1)
 
+      # if @order.status == 1
+      # @order_details.update_all(making_status: 1)
+      # end
+
+      redirect_to request.referer
+    else
+      redirect_to request.referer
+    end
+
+
+    # @order.update(order_params)
+    # redirect_to request.referer
   end
 
 
   def order_params
     params.require(:order).permit(:postal_code, :address, :name, :shipping_cost, :total_payment, :payment_method, :status, :created_at)
+  end
+
+  def order_detail_params
+    params.require(:order_detail).permit(:item_id, :order_id, :name, :price, :amount, :making_status, :created_at)
   end
 
 
