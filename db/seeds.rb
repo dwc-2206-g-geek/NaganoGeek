@@ -6,39 +6,39 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
- Admin.create!(
-   email: 'geek@gmail.com',
-   password: '123456',
- )
+Admin.create!(
+  email: 'geek@gmail.com',
+  password: '123456',
+)
 
- Customer.create!(
-   first_name: '山田',
-   last_name: '太郎',
-   first_name_kana: 'ヤマダ',
-   last_name_kana: 'タロウ',
-   postal_code: '1234567',
-   address: '大阪市大阪府',
-   telephone_number: '1234567',
-   is_deleted: false,
-   email: 'yamada@gmail.com',
-   password: '123456',
-   )
+Customer.create!(
+  first_name: '山田',
+  last_name: '太郎',
+  first_name_kana: 'ヤマダ',
+  last_name_kana: 'タロウ',
+  postal_code: '1234567',
+  address: '大阪市大阪府',
+  telephone_number: '1234567',
+  is_deleted: false,
+  email: 'yamada@gmail.com',
+  password: '123456',
+  )
 
- Genre.create!(
-   name: "ケーキ"
- )
+Genre.create!(
+  name: "ケーキ"
+)
 
- Genre.create!(
-   name: "焼き菓子"
- )
+Genre.create!(
+  name: "焼き菓子"
+)
 
- Genre.create!(
-   name: "プリン"
- )
+Genre.create!(
+  name: "プリン"
+)
 
- Genre.create!(
-   name: "キャンディ"
- )
+Genre.create!(
+  name: "キャンディ"
+)
 
 Item.create!(
   [
@@ -167,8 +167,8 @@ Item.create!(
 
 
 Address.create!(
-   customer_id: 1,
-   postal_code: "1234567",
-   address: "神奈川県横浜市",
-   name: "斎藤さん"
-   )
+  customer_id: 1,
+  postal_code: "1234567",
+  address: "神奈川県横浜市",
+  name: "斎藤さん"
+  )
