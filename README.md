@@ -22,17 +22,28 @@
 ## 開発環境  
 - Cloud9（Amazon Linux 2)  
 
-## 使用した言語  
+## 使用した言語・フレームワーク  
   - ruby: ruby 2.6.3p62 (2019-04-16 revision 67580) [x86_64-linux]  
   - ruby on rails: Rails 6.1.6.1  
   - SQLite3  
+  
+## 使用したgem
+- Active Storage
+- Bootstrap
+- enum_help
+- devise
+- kaminari
+
+## ER図
+![ER図](https://user-images.githubusercontent.com/106298106/180747397-ce5bf775-9df3-4190-b871-9fea6787836a.jpg)
 
 ## 実装機能
 - 管理者・ユーザーログイン機能
-- 商品・ジャンル登録機能
+- 商品・ジャンル登録編集機能
 - カート追加機能
 - 注文機能
 - 注文管理機能
+- 配送先登録・編集機能
 
 ## 開発者  
 ### チーム名「Geek」  
