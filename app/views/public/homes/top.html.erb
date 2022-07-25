@@ -26,7 +26,7 @@
         <h3><strong>新着商品</strong></h3>
 
         <% @new_items.reverse_each do |item| %>
-          <item class="d-inline-block mx-3 my-5">
+          <item class="d-inline-block mx-3 my-5  text-center">
             <%= link_to item_path(item.id) do %>
               <% if item.image.attached? %>
                 <%= image_tag item.image, size: "160x160" %>
