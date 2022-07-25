@@ -1,20 +1,15 @@
 class Admin::OrderDetailsController < ApplicationController
 
   def update
-    @order_detail = OrderDetail.find(params[:id])
-    @order = @order_detail.order
-    if @order_detail.update(order_detail_params)
-
-      # @order_details.making_status == 2 if @order.update(status: 2)
-      redirect_to request.referer
-    # elsif @order.update(status: 2) if @order_detail.making_status == 3
-    # elsif @order_detail.update(order_detail_params)
-    # @order_detail.update(making_status: 2) if @order.update(status: 2)
-
-
-    else
-      redirect_to request.referer
+    @order = Order.find(params[:order_id])
+    @order_detail = @order.order_details.find(params[:id])
+    @order_detail.update(order_detail_params)
+    if @order_detail.making_status == "in_production"
+      @order.update(status: 2)
+    elsif @order.order_details.production_complete.count == @order.order_details.count
+      @order.update(status: 3)
     end
+    redirect_to request.referer
   end
 
 private
