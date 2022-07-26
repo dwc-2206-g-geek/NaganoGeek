@@ -1,24 +1,55 @@
-# README
+# アプリケーション名  
+### 「NaganoGeek」  
+![商品一覧](https://user-images.githubusercontent.com/106298106/180742816-788ac53f-cd55-4c21-87c3-119fb5d38c05.png)
+## アプリケーション概要    
+  長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するためのECサイトです。  
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## GitのURL
+  https://github.com/dwc-2206-g-geek  
 
-Things you may want to cover:
+## 管理者側アカウント  
+  メールアドレス：geek@gmail.com  
+  パスワード：123456  
 
-* Ruby version
+## テスト用顧客アカウント  
+  メールアドレス：yamada@gmail.com  
+  パスワード：123456  
 
-* System dependencies
+## 利用方法  
+  管理者側：管理者用アカウントでログインし、商品や注文の管理を行います。  
+  顧客側：テスト用アカウントでログインし、商品をカートに入れ、支払方法などを選択し、注文します。  
 
-* Configuration
+## 開発環境  
+- Cloud9（Amazon Linux 2)  
 
-* Database creation
+## 使用した言語・フレームワーク  
+  - ruby: ruby 2.6.3p62 (2019-04-16 revision 67580) [x86_64-linux]  
+  - ruby on rails: Rails 6.1.6.1  
+  - SQLite3  
+  
+## 使用したgem
+- Active Storage
+- Bootstrap
+- enum_help
+- devise
+- kaminari
 
-* Database initialization
+## ER図
+![ER図](https://user-images.githubusercontent.com/106298106/180747397-ce5bf775-9df3-4190-b871-9fea6787836a.jpg)
 
-* How to run the test suite
+## 実装機能
+- 管理者・ユーザーログイン機能
+- 商品・ジャンル登録編集機能
+- カート追加機能
+- 注文機能
+- 注文管理機能
+- 配送先登録・編集機能
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発者  
+### チーム名「Geek」  
+名前 | Gitのアカウント
+-|-
+ざわちん|dmmwebcampaizawa
+しみっちゃん|Shimizug
+たこ|ainshuterammo
+時間の神|tako0820
